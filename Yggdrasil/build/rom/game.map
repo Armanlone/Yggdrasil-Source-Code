@@ -17,37 +17,39 @@ AREA .  .ABS.
 		l__LIT	0000
 		l__GSINITTAIL	0001
 		l__BSS	005E
-		l__CODE_5	009E
+		l__CODE_5	00D1
 		l__BASE	01DA
 		l__HEADER	01E1
 		s__CODE	0200
 		l__HOME	0312
-		l__DATA	0504
+		l__DATA	04FA
 		l__CODE_1	0671
-		l__GSINIT	06E4
+		l__GSINIT	06F0
 		l__CODE	1BAC
+		l__CODE_7	1C64
 		s__HOME	1DAC
 		s__BASE	20BE
 		s__LIT	2298
 		s__GSINIT	2298
 		l__CODE_3	296C
-		s__GSINITTAIL	297C
-		s__GSFINAL	297D
+		s__GSINITTAIL	2988
+		s__GSFINAL	2989
 		l__CODE_4	3006
-		l__CODE_6	3FD9
+		l__CODE_6	3F39
 		s__CODE_1	4000
 		s__CODE_3	4000
 		s__CODE_4	4000
 		s__CODE_5	4000
 		s__CODE_6	4000
+		s__CODE_7	4000
 		.OAM	C000
 		s__DATA	C0A0
-		s__BSS	C5A4
-		s__HEAP	C602
-		s__BSEG	C602
-		s__ISEG	C602
-		s__XSEG	C602
-		s__OVERLAY	C602
+		s__BSS	C59A
+		s__HEAP	C5F8
+		s__BSEG	C5F8
+		s__ISEG	C5F8
+		s__XSEG	C5F8
+		s__OVERLAY	C5F8
 		.STACK	E000
 		.refresh_OAM	FF80
 AREA _CODE
@@ -255,24 +257,24 @@ AREA _LIT
 AREA _GSINIT
 	RADIX HEX
 	BASE 2298
-	SIZE 06E4
+	SIZE 06F0
 	ATTRIB REL CON
 	GLOBALS
 		gsinit	2298
 AREA _GSINITTAIL
 	RADIX HEX
-	BASE 297C
+	BASE 2988
 	SIZE 0001
 	ATTRIB REL CON
 AREA _GSFINAL
 	RADIX HEX
-	BASE 297D
+	BASE 2989
 	SIZE 0000
 	ATTRIB REL CON
 AREA _DATA
 	RADIX HEX
 	BASE C0A0
-	SIZE 0504
+	SIZE 04FA
 	ATTRIB REL CON
 	GLOBALS
 		_bank_stack	C0A0
@@ -401,55 +403,55 @@ AREA _DATA
 		gbt_have_to_stop_next_step	C571
 		gbt_update_pattern_pointers	C572
 		_bank_data_ptrs	C573
-		_music_tracks	C581
-		_script_variables	C585
+		_music_tracks	C583
+		_script_variables	C587
 AREA _BSS
 	RADIX HEX
-	BASE C5A4
+	BASE C59A
 	SIZE 005E
 	ATTRIB REL CON
 	GLOBALS
-		__cpu	C5A4
-		.mode	C5A5
-		__io_out	C5A6
-		__io_in	C5A7
-		__io_status	C5A8
-		.vbl_done	C5A9
-		__current_bank	C5AA
-		_sys_time	C5AB
-		.sys_time	C5AB
-		.int_0x40	C5AD
-		.int_0x48	C5BD
-		.int_0x50	C5CD
-		.int_0x58	C5DD
-		.int_0x60	C5ED
-		.randhi	C5FD
-		.randlo	C5FE
+		__cpu	C59A
+		.mode	C59B
+		__io_out	C59C
+		__io_in	C59D
+		__io_status	C59E
+		.vbl_done	C59F
+		__current_bank	C5A0
+		_sys_time	C5A1
+		.sys_time	C5A1
+		.int_0x40	C5A3
+		.int_0x48	C5B3
+		.int_0x50	C5C3
+		.int_0x58	C5D3
+		.int_0x60	C5E3
+		.randhi	C5F3
+		.randlo	C5F4
 AREA _HEAP
 	RADIX HEX
-	BASE C602
+	BASE C5F8
 	SIZE 0000
 	ATTRIB REL CON
 	GLOBALS
-		_malloc_heap_start	C602
+		_malloc_heap_start	C5F8
 AREA _OVERLAY
 	RADIX HEX
-	BASE C602
+	BASE C5F8
 	SIZE 0000
 	ATTRIB REL CON
 AREA _ISEG
 	RADIX HEX
-	BASE C602
+	BASE C5F8
 	SIZE 0000
 	ATTRIB REL CON
 AREA _BSEG
 	RADIX HEX
-	BASE C602
+	BASE C5F8
 	SIZE 0000
 	ATTRIB REL CON
 AREA _XSEG
 	RADIX HEX
-	BASE C602
+	BASE C5F8
 	SIZE 0000
 	ATTRIB REL CON
 AREA _CODE_3
@@ -626,60 +628,69 @@ AREA _CODE_1
 AREA _CODE_6
 	RADIX HEX
 	BASE 4000
-	SIZE 3FD9
+	SIZE 3F39
 	ATTRIB REL CON
 	GLOBALS
 		_bank_6_data	4000
+AREA _CODE_7
+	RADIX HEX
+	BASE 4000
+	SIZE 1C64
+	ATTRIB REL CON
+	GLOBALS
+		_bank_7_data	4000
 AREA _CODE_5
 	RADIX HEX
 	BASE 4000
-	SIZE 009E
+	SIZE 00D1
 	ATTRIB REL CON
 	GLOBALS
 		_tileset_bank_ptrs	4000
-		_background_bank_ptrs	4003
-		_sprite_bank_ptrs	401E
-		_scene_bank_ptrs	4033
-		_string_bank_ptrs	404E
-		_avatar_bank_ptrs	4099
-		_music_banks	409C
+		_background_bank_ptrs	400C
+		_sprite_bank_ptrs	4039
+		_scene_bank_ptrs	4054
+		_string_bank_ptrs	4081
+		_avatar_bank_ptrs	40CC
+		_music_banks	40CF
 MODULES
 	FILE C:\tmp/_gbs/gbdk/lib/small/asxxxx/gb/crt0.o
 		NAME Runtime
 	FILE obj/BankData.o
-		NAME lcc34120
+		NAME lcc60640
 	FILE obj/BankManager.o
-		NAME lcc33560
+		NAME lcc69840
 	FILE obj/FadeManager.o
-		NAME lcc77520
+		NAME lcc51080
 	FILE obj/Math.o
-		NAME lcc100560
+		NAME lcc87600
 	FILE obj/MusicManager.o
-		NAME lcc64040
+		NAME lcc87480
 	FILE obj/Scene.o
-		NAME lcc72880
+		NAME lcc75720
 	FILE obj/Scene_b.o
-		NAME lcc90040
+		NAME lcc65040
 	FILE obj/ScriptRunner.o
-		NAME lcc84040
+		NAME lcc74680
 	FILE obj/ScriptRunner_b.o
-		NAME lcc61120
+		NAME lcc77440
 	FILE obj/SpriteHelpers.o
-		NAME lcc100320
+		NAME lcc48200
 	FILE obj/Stack.o
-		NAME lcc27280
+		NAME lcc42760
 	FILE obj/UI.o
-		NAME lcc41480
+		NAME lcc57160
 	FILE obj/UI_b.o
-		NAME lcc58240
+		NAME lcc9440
 	FILE obj/game.o
-		NAME lcc99280
+		NAME lcc38960
 	FILE obj/gbt_player.o
 	FILE obj/gbt_player_bank1.o
 	FILE obj/data/bank_6.o
-		NAME lcc93720
+		NAME lcc32160
+	FILE obj/data/bank_7.o
+		NAME lcc83560
 	FILE obj/data/data_ptrs.o
-		NAME lcc12520
+		NAME lcc41960
 LIBRARIES
 	LIBRARY C:\tmp/_gbs/gbdk/lib/small/asxxxx/gbz80/gbz80.lib
 		MODULE crt0_rle.o
